@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import Check from "../Check";
 import './style.css';
 
