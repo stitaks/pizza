@@ -1,8 +1,8 @@
-import { createRoot } from 'react-dom/client';
 import ToppingsSelect from './components/ToppingsSelect';
+import ITopping from './models/Topping';
 import './style.css';
 
-const toppings = [
+const toppings: ITopping[] = [
   {
     name: 'Pepperoni',
     price: 1,
@@ -77,7 +77,7 @@ const toppings = [
   },
 ];
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <div className="container">
       <header>
@@ -91,6 +91,4 @@ const App = () => {
   );
 };
 
-createRoot(
-  document.querySelector('#app'),
-).render(<App />);
+export default App;

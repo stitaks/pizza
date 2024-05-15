@@ -1,7 +1,7 @@
-import { useState } from "react";
+import React, { useState } from 'react';
 import './style.css';
 
-const Check = () => {
+const Check : React.FC = ()  => {
   const [checked, setChecked] = useState(false);
 
   const handleClick = () => {

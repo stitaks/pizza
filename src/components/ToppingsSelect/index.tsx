@@ -1,7 +1,12 @@
+import ITopping from "../../models/Topping";
 import Topping from "../Topping";
 import './style.css';
 
-const ToppingsSelect = ({ toppings }) => {
+interface IToppingsSelectProps {
+  toppings: ITopping[]
+}
+
+const ToppingsSelect: React.FC<IToppingsSelectProps> = ({ toppings }) => {
   return (
     <>
       <p>Choose as many toppings as you want</p>
