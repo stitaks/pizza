@@ -8,20 +8,26 @@ interface IToppingsSelectProps {
 }
 
 const ToppingsSelect: React.FC<IToppingsSelectProps> = ({ toppings }) => {
-  const [checked, setChecked] = useState(false);
 
-  const handleClick = () => {
-    setChecked(!checked);
-  };
+  const [selectedToppings, setSelectedToppings] = useState(0)
+  const [totalPrice, setTotalPrice] = useState(0)
   
   return (
     <>
       <p>Choose as many toppings as you want</p>
-      <p>Selected toppings: 0, total price: 0 Euro</p>
+      <p>Selected toppings: {selectedToppings}, total price: {totalPrice} Euro</p>
 
       <div className="toppings">
         {toppings.map((topping) => (
-          <Topping topping={topping} key={topping.name} checked={checked} onChange={handleClick}  />
+          <Topping 
+          topping={topping} 
+          key={topping.name} 
+          checked={topping.selected} 
+          onChange={() => {
+            topping.selected = !(topping.selected)
+            topping.selected? setSelectedToppings(selectedToppings+1):setSelectedToppings(selectedToppings-1) 
+            topping.selected? setTotalPrice(totalPrice+topping.price):setTotalPrice(totalPrice-topping.price) 
+          }}  />
         ))}
       </div>
     </>
